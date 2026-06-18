@@ -1,6 +1,6 @@
 from flask import Flask, request , url_for , render_template
 import joblib
-model = joblib.load(r'C:\Users\user\OneDrive\Desktop\Data Science\Customer-Satisfaction-Analysis-System\model\customer_model.lb')
+model = joblib.load(r'C:\Users\user\OneDrive\Desktop\Data Science\Customer-Satisfaction-Analysis-System\model\Customer_model.lb')
 app = Flask(__name__)
 @app.route('/')
 def index():
