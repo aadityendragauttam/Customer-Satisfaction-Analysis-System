@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Satisfaction Analysis System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 20px;
+   
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+main {
+    padding: 20px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+.description {
+    text-align: center;
+}
+
+.form-container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+.form-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #3e8e41;
+}
+
+.disclaimer {
+    font-size: 0
+}
+.Prediction{
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+}
+</style>
+<body>
+    <header>
+        <h1>Customer Satisfaction Analysis System</h1>
+    </header>
+    <main>
+        <section class="description">
+            <h2>Welcome to the Customer Satisfaction Analysis Tool!</h2>
+            <p>Enter the passenger detail and flight configurations to analyze and predict customer satisfaction status.</p>
+        </section>
+        <section class="form-container">
+<form action="{{ url_for('predict') }}" method="post">
+    <label for="gender">Gender:</label>
+    <select name="gender" id="gender" required>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select><br><br>
+
+    <label for="customer_type">Customer Type:</label>
+    <select name="customer_type" id="customer_type" required>
+        <option value="Loyal Customer">Loyal Customer</option>
+        <option value="disloyal Customer">Disloyal Customer</option>
+    </select><br><br>
+            
+    <label for="type_of_travel">Type of Travel:</label>
+    <select name="type_of_travel" id="type_of_travel" required>
+        <option value="Business travel">Business Travel</option>
+        <option value="Personal Travel">Personal Travel</option>
+    </select><br><br>
+
+    <label for="class_type">Class:</label>
+    <select name="class_type" id="class_type" required>
+        <option value="Business">Business</option>
+        <option value="Eco">Eco</option>
+        <option value="Eco Plus">Eco Plus</option>
+    </select><br><br>
+
+    <label for="age">Age:</label>
+    <input type="number" name="age" id="age" min="1" max="120" placeholder="e.g. 35" required><br><br>
+
+    <label for="flight_distance">Flight Distance (miles):</label>
+    <input type="number" name="flight_distance" id="flight_distance" min="1" placeholder="e.g. 450" required><br><br>
+
+    <label for="inflight_entertainment">Inflight Entertainment Rating (0-5):</label>
+    <input type="number" name="inflight_entertainment" id="inflight_entertainment" min="0" max="5" placeholder="0 to 5" required><br><br>
+    <label for="baggage_handling">Baggage Handling Rating (1-5):</label>
+    <input type="number" name="baggage_handling" id="baggage_handling" min="1" max="5" placeholder="1 to 5" required><br><br>
+
+    <label for="cleanliness">Cleanliness Rating (0-5):</label>
+    <input type="number" name="cleanliness" id="cleanliness" min="0" max="5" placeholder="0 to 5" required><br><br>
+
+    <label for="departure_delay">Departure Delay in Minutes:</label>
+    <input type="number" name="departure_delay" id="departure_delay" min="0" placeholder="e.g. 15" required><br><br>
+
+                
+                <button type="submit">Predict Price</button>
+            </form>
+            <!-- <p class="disclaimer">**Disclaimer:** This is a basic website for demonstration purposes only. A real prediction model would require additional features and machine learning integration.</p>
+        </section> -->
+        <!-- <section class="results">
+            <h2>Predicted Price</h2>
+            <p id="predicted-price">**This is where the predicted price will be displayed.**</p>
+        </section> -->
+    </main>
+    <div class="Prediction">
+    <h2>The Customer is : {{ prediction }}</h2>
+</div>
+    <footer>
+        <!-- <p>&copy;2024  Customer Satisfaction Analysis System</p> -->
+    </footer>
+</body>
+</html>
