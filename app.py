@@ -60,6 +60,5 @@ def predict():
     
     return render_template('project.html',prediction = final)
 
-
 if __name__ == '__main__':
     app.run(debug=True)
